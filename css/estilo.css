@@ -1,0 +1,481 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&family=Roboto&display=swap");
+:root{
+    --purple-principal: #7519EB;
+    --purple-secundario: #A259FF;
+    --purple-terciario: #8456BE;
+    --green-color: #8DD85F;
+    --red-color: #FF5959;
+    --pink-purple: #FF0099;
+    --purple-deep: #5F17BC;
+    --purple-highlight: #601DB5;
+}
+*{box-sizing: border-box; padding: 0; margin: 0;}
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Nunito', sans-serif;
+    background-color: var(--purple-principal);
+    overflow-x: hidden;
+}
+
+.cloud-1 {
+    width: 350px; 
+    height: 120px;
+    background: var(--purple-secundario);
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    position: absolute;
+    margin: 120px auto 20px;
+    left: 70%;
+    top: -20px;
+    z-index: -2;
+}
+
+
+
+.cloud-1:after, .cloud-1:before{
+    content: '';
+    position: absolute;
+    background-color: var(--purple-secundario);
+    z-index: -1;
+}
+
+.cloud-1:after{
+    width: 100px;
+    height: 100px;
+    top: -50px;
+    left: 50px;
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+}
+
+.cloud-1:before{
+    width: 180px;
+    height: 180px;
+    top: -90px;
+    right: 50px;
+    border-radius: 200px;
+    -webkit-border-radius: 200px;
+	-moz-border-radius: 200px;
+}
+
+/**********************************************
+Estilização do Modal
+*********************/
+.modal{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    
+}
+
+.modal-content{
+    /*margin: 15% auto;*/
+    background-color: var(--purple-secundario);
+    width: 500px;
+    border-radius: 8px;
+    padding: 50px 30px 30px 30px;
+    position: relative;
+    -webkit-animation-name: modal_animated;
+    -webkit-animation-duration: 1s;
+    animation-name: modal_animated;
+    animation-duration: 1s;
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, .4);
+}
+
+.btn-close{
+    position: absolute;
+    top: 10px;
+    left: 93%;
+    cursor: pointer;
+    font-weight: bolder;
+    font-size: 1.7em;
+    color: white;
+    transition: color 200ms;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.btn-close:hover{
+    color: var(--purple-principal);
+}
+
+.modal-content h3{
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    padding-bottom: 5px;
+}
+
+.modal-content textarea{
+    width: 100%;
+    height: 100px;
+    resize: none;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 1px solid 888;
+    border: none;
+    padding: 10px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight:lighter;
+    font-size: 1.2em;
+    transition: border 300ms;
+}
+
+.btn-add-question{
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--purple-principal);
+    color: white;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 200ms;
+}
+
+.btn-add-question:hover{
+    background-color: var(--purple-deep);
+}
+
+.modal-content textarea:focus{
+    border: 3px solid var(--purple-principal);
+    outline: none;
+}
+
+.required-info{
+    color: white;
+    float: right;
+    display: none;
+}
+
+.requried-info-active{
+    display: block;
+}
+
+/**********************************************
+Estilização do Modal - Animação
+*********************/
+@-webkit-keyframes modal_animated{
+    from{top: -300px; opacity: 0;}
+    to{top: 0; opacity: 1;}
+}
+
+@keyframes modal_animated{
+    from{top: -300px; opacity: 0;}
+    to{top: 0; opacity: 1;}
+}
+
+.container {
+    padding: 30px;
+}
+.container h1{
+    color: white;
+}
+
+.add-pergunta{
+    padding: 10px;
+    border-radius: 3px;
+    border: none;
+    background-color: var(--purple-secundario);
+    color: white;
+    margin: 15px 0;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 10ms;
+}
+
+.add-pergunta:hover{
+    background-color: var(--purple-terciario);
+}
+
+.sub-container{
+    padding-top: 50px;
+}
+
+.sub-container .question-number, .sub-container .help{
+    border-radius: 5px;
+    padding: 0 10px;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.sub-container .question-number{
+    background-color: var(--pink-purple);
+}
+
+.sub-container .help{
+    background-color: dodgerblue;
+    cursor: pointer;
+    position: relative;
+}
+
+.help .tooltiptext{
+    position: absolute;
+    width: 200px;
+    top: -105px;
+    background-color: dodgerblue;
+    border-radius: 20px;
+    padding: 10px;
+    z-index: 1;
+    visibility: hidden;
+    /*transition: visibility 200ms;*/
+    transition: visibility 0.3s linear, opacity 0.3s linear;
+    opacity: 0;
+}
+
+
+.help .tooltiptext::after{
+    content: '';
+    position: absolute;
+    top: 78px;
+    left: -0.3rem;
+    transform: rotate(45deg);
+    margin-left: -5px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: var(--pink-purple) transparent transparent transparent;
+}
+
+.help:hover .tooltiptext{
+    visibility: visible;
+    opacity: 1;
+}
+
+
+
+/*
+    Estilização do Dropzone
+*/
+.dropzone{
+    display: flex;
+    margin-top: 20px;
+    border: 2px dashed var(--purple-secundario);
+    background-color: var(--purple-principal); 
+    /*background-color: rgba(255, 255, 255, 0.55);*/
+    border-radius: 15px;
+    /*padding: 20px;*/
+    align-items: center;
+    justify-content: flex-start;
+    /*box-shadow: 1px 4px 5px 3px rgba(0, 0, 0, 0.5);*/
+    flex-wrap: wrap;
+    /*padding: 10px 10px 10px 15px;*/
+    
+}
+
+.purple-highlight{
+    background-color: var(--purple-highlight);
+}
+
+/*
+    Estilização do Flip Card
+*/
+.flip-card{
+    background-color: transparent;
+    width: 230px;
+    height: 200px;
+    /*border: 1px solid #f1f1f1;*/
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+    border-radius: 8px;
+    margin: 10px;
+    cursor: pointer;
+    /*padding: 30px 15px 10px 15px;*/
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    border-radius: 8px;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner{
+    transform: rotateY(180deg);
+    
+}
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+    border-radius: 8px;
+    overflow: auto;
+}
+
+  /* Style the front side (fallback if image is missing) */
+.flip-card-front {
+    background-color: var(--purple-secundario);
+    color: black;
+    padding: 30px 15px 10px 15px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.flip-card-front h2{
+    color: white;
+    font-size: 1.2em;
+}
+
+
+  /* Style the back side */
+.flip-card-back {
+    background-color: dodgerblue;
+    color: white;
+    transform: rotateY(180deg);
+    padding: 30px 15px 10px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .flip-card-back h1{
+      font-size: 1.5rem;
+  }
+
+  .flip-card-back .btn-container{
+        display: flex;
+        padding: 5px;
+  }
+  .btn-container .btn-edit, .btn-container .btn-delete{
+    border-radius: 100%;
+    padding: 10px; 
+    border: none;
+    margin: 10px 10px 0 0;
+    cursor: pointer;
+    color: white;
+    transition: transform .5s;
+    font-family: 'Nunito', sans-serif;
+}
+
+.btn-container .btn-edit{
+    background-color: var(--pink-purple);
+}
+
+.btn-container .btn-delete{
+    background-color: var(--purple-principal);
+}
+
+.btn-container .btn-edit:hover, .btn-container .btn-delete:hover{
+    transform: scale(1.2);
+}
+/*---------------------------------*/
+
+.card{
+    background-color: var(--purple-secundario);
+    margin: 10px;
+    border-radius: 8px;
+    padding: 30px 15px 10px 15px;
+    width: 230px;
+    height: 200px;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: transform 400ms;
+}
+
+.card:hover{
+    transform: scale(1.1);
+    /*box-shadow: 1px 2px 4px 4px rgba(162, 89, 255, 1);*/
+}
+
+.card .text{
+    padding: 5px 0;
+    font-size: 1em;
+}
+
+.card h3{
+    font-weight: 200;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card .show-hide{
+    cursor: pointer;
+    transition: color linear .2s;
+    font-size: 0.9em;
+}
+
+.card .show-hide:hover{
+    color: var(--purple-principal);
+}
+
+.btn-group{
+    display: flex;
+    padding: 5px;
+    margin-bottom: 30px;
+}
+
+.btn-group .btn-edit, .btn-group .btn-delete{
+    border-radius: 100%;
+    padding: 12px; 
+    border: none;
+    margin: 10px 10px 0 0;
+    cursor: pointer;
+    color: white;
+    transition: transform .5s;
+}
+
+.btn-group .btn-edit{
+    background-color: var(--green-color);
+}
+
+.btn-group .btn-delete{
+    background-color: var(--red-color);
+}
+
+.btn-group .btn-edit:hover, .btn-group .btn-delete:hover{
+    transform: scale(1.2);
+}
+
+.isDragging{
+    cursor: move;
+    opacity: 0.3;
+}
+
+.message-empty-question{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.message-empty-question img{
+    width: 30%;
+    -webkit-animation-name: imgAnimated;
+    animation-name: imgAnimated;
+    animation-duration: 700ms;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes imgAnimated{
+    from {width: 10%;}
+    to{width: 45%;}
+}
+@keyframes imgAnimated{
+    from {width: 10%;}
+    to{width: 45%;}
+}

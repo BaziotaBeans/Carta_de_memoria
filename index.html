@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-ao"> 
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Beans">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>Carta de Memória</title>
+        <link rel="stylesheet" href="css/estilo.css">
+        <script src="https://kit.fontawesome.com/93146aa192.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+    
+        <div class="cloud-1">
+            <span class="shadow"></span>
+        </div>
+        <div class="cloud-2">
+            <span class="shadow"></span>
+        </div>
+        
+        <div class="modal">
+            <div class="modal-content">
+                <span class="btn-close">&times;</span>
+                <div class="question">
+                    <h3>Pergunta</h3>
+                    <textarea class="question-text"></textarea>
+                    <span class="required-info question-r">O campo da pergunta está vazia</span>
+                </div>
+                <div class="answer">
+                    <h3>Resposta</h3>
+                    <textarea class="answer-text" required></textarea>
+                    <span class="required-info answer-r">O campo da resposta está vazia</span>
+                </div>
+                <button class="btn-add-question">Add Pergunta</button>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <h1>Cartas de Memória</h1>
+            <button class="add-pergunta">Add Pergunta</button>
+
+            <div class="sub-container">
+                <span class="question-number"><span class="number-of-card"></span> Perguntas</span>
+                <span class="help">Ajuda <span class="tooltiptext">Passe o mouse por cima das cartas para ver as respostas</span></span>
+
+                <div class="message-empty-question">
+                    <!--<img src="img/question.png">-->
+                    <h1>Adicione Novas Perguntas!</h1>
+                </div>
+                    
+                <div class="dropzone">
+                    
+                </div>
+            </div>
+        </div>
+
+
+        <script src="js/app.js"></script>
+
+    </body>
+
+</html>
